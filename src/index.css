@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+@keyframes klaming {
+    from {
+        top: -90.7407vh;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+
+li::marker {
+    color: white;
+    font-size: 1.2em;
+}
