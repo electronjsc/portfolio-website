@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
-import router from '@/router'
 
 import PersonalPhoto from '../assets/images/personal_image.png'
 
-
 import VueJS from '../assets/VueJS.svg'
 import JavaScript from '../assets/JavaScript.svg'
-import { document } from 'postcss'
 
 const information = ref([
     {
@@ -83,7 +79,7 @@ const myskills = ref([
                     {{ info.myskills_message }}
                     <br>
                     <div v-for="(skill, index) in myskills">
-                        <div class="about_wrapper__blocks__block-skills hover:scale-125">
+                        <div class="about_wrapper__blocks__block-skills hover:scale-105">
                             <img 
                                 class=""
                                 :src="skill.skill_image"
