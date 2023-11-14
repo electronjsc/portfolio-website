@@ -72,16 +72,17 @@ import { ref } from 'vue'
 <style scoped lang="scss">
 
 .portfolio {
-  @apply min-h-screen w-full bg-[url('@images/bg.png')] bg-cover bg-no-repeat flex;
+  @apply flex min-h-screen w-full bg-[url('@images/bg.png')] bg-cover bg-no-repeat
+  min-[300px]:w-[122%] min-[300px]:min-h-[250vh] min-[600px]:w-[100%] bg-center;
 
   &__header {
-    @apply w-full bg-black h-20 flex justify-center z-10;
+    @apply flex w-full bg-black w-full h-20 justify-center z-10;
 
     &__wrapper {
-      @apply flex mx-2 mt-7 justify-center box-border mr-[2.7778vh];
+      @apply flex mx-2 mt-7 justify-center box-border mr-[0.7778vh];
 
       &_logo {
-        @apply w-full mr-[23.1482vh];
+        @apply w-full mr-[23.1482vh] min-[300px]:mr-[5.1482vh];
       }
       
       &_github {
@@ -100,7 +101,8 @@ import { ref } from 'vue'
 }
 
 .footer {
-    @apply w-full bg-black h-20 flex justify-center z-10;
+    @apply w-full bg-black h-20 flex justify-center z-10
+    min-[300px]:w-[122%] min-[600px]:w-[100%];
 
     &__wrapper {
       @apply flex mx-2 mt-7 justify-center box-border mr-[2.7778vh];

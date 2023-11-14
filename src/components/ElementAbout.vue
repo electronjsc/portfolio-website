@@ -5,6 +5,7 @@ import PersonalPhoto from '../assets/images/personal_image.png'
 
 import VueJS from '../assets/VueJS.svg'
 import JavaScript from '../assets/JavaScript.svg'
+import Pawn from '../assets/Pawn.svg'
 
 const information = ref([
     {
@@ -37,6 +38,15 @@ const myskills = ref([
         JavaScript functions can improve the convenience of interacting with a website: \
         from updating the news feed on social networks to displaying animations and interactive maps.',
     },
+    {
+        skill_message: 'Pawn', 
+        skill_image: Pawn,
+        skill_info: 'A simple, typed 32-bit scripting programming language with a syntax similar to the C language.\
+        The compiler generates P-code (or bytecode) that runs on an abstract machine.\
+        Pawn source code files have an extension .pwn; compiled and ready—to-run - .amx.\
+        The language is popular for Grand Theft Auto San Andreas Multiplayer (GTA SAMP) and Counter-Strike 1.6 game servers.\
+        It has an unusual compiler, as well as a code editor.',
+    }
 ])
 
 </script>
@@ -79,13 +89,16 @@ const myskills = ref([
                     {{ info.myskills_message }}
                     <br>
                     <div v-for="(skill, index) in myskills">
-                        <div class="about_wrapper__blocks__block-skills hover:scale-105">
+                        <div class="about_wrapper__blocks__block-skills hover:scale-105"> 
+
                             <img 
                                 class=""
                                 :src="skill.skill_image"
-                            > 
-                            <div class="w-[0.5555vh] mx-2 bg-slate-400"></div>
-                            <p class="text-base pt-1 font-normal text-white/50">{{ skill.skill_info }}</p>
+                            >
+
+                            <div class="border-l-[1px] mx-2 pl-5">
+                                <p class="text-base text-center pt-1 font-normal text-white/50">{{ skill.skill_info }}</p>
+                            </div>
                         </div>
                     </div>
                 </p>
@@ -96,15 +109,16 @@ const myskills = ref([
 
 <style lang="scss" scoped>
 .about_wrapper {
-    animation-fill-mode: forwards;
   @apply absolute w-full min-h-screen flex bg-cover bg-no-repeat animate-[klaming_1.5s];
 
   &__blocks {
-    @apply flex flex-col m-auto max-w-[58.5185vh] px-[1.8519vh];
+    @apply flex flex-col m-auto w-[55.5556vh] px-[1.8519vh] mt-[10vh]
+    min-[300px]:mt-20 transition-all;
 
     &__block {
         @apply flex w-full bg-[#00000080] p-[1.8519vh] rounded-xl transition-all 
-        duration-500 cursor-pointer hover:scale-90 mt-3 items-center;
+        duration-500 cursor-pointer hover:scale-90 mt-3 items-center min-[300px]:w-[125%]
+        min-[500px]:w-full;
 
         &-skills {
             @apply flex bg-[#00000080] p-[1.8519vh] rounded-xl transition-all 

@@ -14,7 +14,7 @@ const information = ref([
         message: 'Email',
         href: 'electronjsc.dev@gmail.com'
     }
-])
+]);
 
 </script>
 
@@ -47,7 +47,8 @@ const information = ref([
 
     &__block {
         @apply flex w-full bg-[#00000080] p-[1.8519vh] rounded-xl transition-all 
-        duration-500 hover:scale-90 mt-3 items-center;
+        duration-500 hover:scale-90 mt-3 items-center min-[300px]:w-[125%]
+        min-[500px]:w-full;
 
         &_text {
             @apply w-full font-bold text-white;
