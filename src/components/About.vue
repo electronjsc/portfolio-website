@@ -29,7 +29,8 @@ const myskills = ref([
         skill_message: 'Vue', 
         skill_image: VueJS,
         skill_info: 'Vue JS is an open source JavaScript framework for creating user interfaces. \
-        It can function as a web framework for developing single-page applications in a reactive style.'
+        It can function as a web framework for developing single-page applications in a reactive style.',
+        skill_href: 'https://vuejs.org/'
     },
     { 
         skill_message: 'JavaScript', 
@@ -37,6 +38,7 @@ const myskills = ref([
         skill_info: 'JavaScript is a programming language that is used to create interactive web pages.\
         JavaScript functions can improve the convenience of interacting with a website: \
         from updating the news feed on social networks to displaying animations and interactive maps.',
+        skill_href: 'https://javascript.info/'
     },
     {
         skill_message: 'Pawn', 
@@ -46,6 +48,7 @@ const myskills = ref([
         Pawn source code files have an extension .pwn; compiled and ready—to-run - .amx.\
         The language is popular for Grand Theft Auto San Andreas Multiplayer (GTA SAMP) and Counter-Strike 1.6 game servers.\
         It has an unusual compiler, as well as a code editor.',
+        skill_href: 'https://www.compuphase.com/pawn/pawn.htm'
     }
 ])
 
@@ -89,7 +92,7 @@ const myskills = ref([
                     {{ info.myskills_message }}
                     <br>
                     <div v-for="(skill, index) in myskills">
-                        <div class="about_wrapper__blocks__block-skills hover:scale-105"> 
+                        <a :href="skill.skill_href" class="about_wrapper__blocks__block-skills hover:scale-105"> 
 
                             <img 
                                 class=""
@@ -99,7 +102,7 @@ const myskills = ref([
                             <div class="border-l-[1px] mx-2 pl-5">
                                 <p class="text-base text-center pt-1 font-normal text-white/50">{{ skill.skill_info }}</p>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </p>
             </div>
