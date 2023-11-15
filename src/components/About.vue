@@ -57,16 +57,16 @@ const myskills = ref([
 <template>
     <div class="about_wrapper">
         <selection class="about_wrapper__blocks">
-            <div v-for="(info, index) in information" 
-            class="about_wrapper__blocks__block justify-center" 
+            <modal-window v-for="(info, index) in information" 
+            class="justify-center" 
             :key="index"
             >
                 <p class="text-sm font-normal text-center text-white">
                     {{ info.phrase_message }}
                 </p>
-            </div>
-            <div v-for="(info, index) in information" 
-                class="about_wrapper__blocks__block justify-end" 
+            </modal-window>
+            <modal-window v-for="(info, index) in information" 
+                class="justify-end" 
                 :key="index"
             >
                 <p class="w-full text-3xl font-bold text-center text-white pr-[9.2593vh]">
@@ -74,25 +74,24 @@ const myskills = ref([
                     <p class="text-sm pt-1 font-normal">{{ info.personal_job }}</p>
                 </p>
                 <img class="relative rounded-[100%]" :src="info.personal_image">
-            </div>
-            <div v-for="(info, index) in information" 
-                class="about_wrapper__blocks__block justify-start" 
+            </modal-window>
+            <modal-window v-for="(info, index) in information" 
+                class="justify-start" 
                 :key="index"
             >
                 <p class="w-full text-3xl font-bold text-white">
                     {{ info.about_message }}
                     <p class="text-sm pt-1 font-normal text-white/50">{{ info.about_description }}</p>
                 </p>
-            </div>
-            <div v-for="(info, index) in information" 
-                class="about_wrapper__blocks__block" 
+            </modal-window>
+            <modal-window v-for="(info, index) in information" 
                 :key="index"
             >
                 <p class="w-full text-3xl font-bold text-white">
                     {{ info.myskills_message }}
                     <br>
                     <div v-for="(skill, index) in myskills">
-                        <a :href="skill.skill_href" class="about_wrapper__blocks__block-skills hover:scale-105"> 
+                        <a :href="skill.skill_href" class="about_wrapper__blocks-skills hover:scale-105"> 
 
                             <img 
                                 class=""
@@ -105,7 +104,7 @@ const myskills = ref([
                         </a>
                     </div>
                 </p>
-            </div>
+            </modal-window>
         </selection>
     </div>
 </template>
@@ -118,15 +117,9 @@ const myskills = ref([
     @apply flex flex-col m-auto w-[55.5556vh] px-[1.8519vh] mt-[10vh]
     min-[300px]:mt-20 transition-all;
 
-    &__block {
-        @apply flex w-full bg-[#00000080] p-[1.8519vh] rounded-xl transition-all 
-        duration-500 cursor-pointer hover:scale-90 mt-3 items-center min-[300px]:w-[125%]
-        min-[500px]:w-full;
-
-        &-skills {
-            @apply flex bg-[#00000080] p-[1.8519vh] rounded-xl transition-all 
-            duration-500 cursor-pointer mt-5 opacity-30 hover:opacity-100
-        }
+    &-skills {
+        @apply flex bg-[#00000080] p-[1.8519vh] rounded-xl transition-all 
+        duration-500 cursor-pointer mt-5 opacity-30 hover:opacity-100
     }
   }
 }

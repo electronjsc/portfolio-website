@@ -21,18 +21,18 @@ const information = ref([
 <template>
     <div class="links_wrapper">
         <div class="links_wrapper__blocks">
-            <div class="links_wrapper__blocks__block">
+            <modal-window>
                 <ul>
-                    <p class="links_wrapper__blocks__block_text text-3xl">Links</p>
+                    <p class="links_wrapper__blocks_text text-3xl">Links</p>
                     <br>
                     <li v-for="(info, index) in information" 
-                        class="links_wrapper__blocks__block_text text-xl font-medium"
+                        class="links_wrapper__blocks_text text-xl font-medium"
                         :key="index">
                         
                         * {{ info.message }} - <a class="underline" :href="info.href">{{ info.href }}</a>
                     </li>
                 </ul>
-            </div>
+            </modal-window>
         </div>
     </div>
 </template>
@@ -45,14 +45,8 @@ const information = ref([
   &__blocks {
     @apply flex flex-col m-auto max-w-[58.5185vh] px-[1.8519vh] mt-[9.2593vh];
 
-    &__block {
-        @apply flex w-full bg-[#00000080] p-[1.8519vh] rounded-xl transition-all 
-        duration-500 hover:scale-90 mt-3 items-center min-[300px]:w-[125%]
-        min-[500px]:w-full;
-
-        &_text {
-            @apply w-full font-bold text-white;
-        }
+    &_text {
+        @apply w-full font-bold text-white;
     }
   }
 }

@@ -1,60 +1,47 @@
 <template>
     <div class="blog_wrapper">
         <selection class="blog_wrapper__blocks">
-            <RouterLink v-for="(info, index) in information" 
-                class="blog_wrapper__blocks__block"
-                :key="index"
-                :to="{ name: 'blog', params: { id: info.id }}"
-            >
-                <p class="blog_wrapper__blocks__block_text">
-                    {{ info.blog_name }}
-                    <img class="mt-7" :src="info.blog_image">
-                    <br />
-                    Номер поста: {{ info.id }}
-                    <br />
-                        <p class="font-medium text-white/50 pt-4">{{ info.blog_description }}</p>
-                    <br />
-
-                    <p>Go to reading the post - click in post!</p>
-                </p>
-                
-            </RouterLink>
+            <BlogList v-if="blogs.length > 0" :blogs="blogs" />
+            <h1 v-else class="text-white text-center ml-[53vh] w-full
+            font-bold text-2xl max-[400px]:ml-[0vh]">
+                В данный момент постов с блогами - нет. 😢
+            </h1>
         </selection>
     </div>
 </template>
 
 <script lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink, RouterView} from 'vue-router'
+import BlogList from '../blogs/BlogList.vue'
 
-import BlogInformation from './BlogInformation.vue'
 
 export default {
-    data() {
+    data() {  
         return {
-            information: [
+            blogs: [
                 {
-                    id: 1,
+                    blog_id: 1,
                     blog_name: 'Creating a portfolio website using a framework vue.js',
                     blog_description: 'In this post, telling how I created my first portfolio site. \n\
                     Thank you for loving reading my blog.',
                     blog_image: 'https://heaad.ru/wp-content/uploads/2021/07/back_to_work_4x.png',   
                 }, 
                 {
-                    id: 2,
+                    blog_id: 2,
                     blog_name: 'Creating a portfolio website using a framework vue.js',
                     blog_description: 'In this post, telling how I created my first portfolio site. \n\
                     Thank you for loving reading my blog.',
                     blog_image: 'https://heaad.ru/wp-content/uploads/2021/07/back_to_work_4x.png',   
                 },
                 {
-                    id: 3,
+                    blog_id: 3,
                     blog_name: 'Creating a portfolio website using a framework vue.js',
                     blog_description: 'In this post, telling how I created my first portfolio site. \n\
                     Thank you for loving reading my blog.',
                     blog_image: 'https://heaad.ru/wp-content/uploads/2021/07/back_to_work_4x.png',   
                 },
-                {
-                    id: 4,
+                {  
+                    blog_id: 4,
                     blog_name: 'Creating a portfolio website using a framework vue.js',
                     blog_description: 'In this post, telling how I created my first portfolio site. \n\
                     Thank you for loving reading my blog.',
@@ -63,12 +50,13 @@ export default {
             ]
         }
     },
-
+    methods: {
+        
+    },
     components: {
-        BlogInformation
-    }
+        BlogList,
+    },
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -79,20 +67,6 @@ export default {
   &__blocks {
     @apply grid md:grid-cols-3 gap-3 w-[60%] min-[300px]:h-[175.9814vh] m-auto 
     mt-[11.8889vh] overflow-auto min-[300px]:mt-[11vh] min-[300px]:w-[85%] ml-20;
-
-    &__block {
-        @apply flex w-full bg-[#00000080] p-[20.0005px] rounded-xl transition-all 
-        duration-500 cursor-pointer hover:scale-90 items-stretch min-[300px]:w-[100%]
-        min-[500px]:w-full min-[500px]:h-[95%];
-
-        &_text {
-            @apply w-full text-center font-bold text-white;
-        }
-
-        img {
-            @apply rounded-xl;
-        }
-    }
   }
 }
 
